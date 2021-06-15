@@ -1,25 +1,24 @@
 package hello.hellospring.service;
 
+
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class MemberServiceTest {
-        MemoryMemberRepository memberRepository =new MemoryMemberRepository();
-        MemberService memberService = new MemberService(memberRepository);
+@SpringBootTest
+@Transactional
+public class MemberServiceIntTest {
 
 
-
-        @AfterEach
-        public void afterEach(){
-            memberRepository.clearStore();
-        }
-
+    @Autowired MemberService memberService;
+    @Autowired
+    MemberRepository memberRepository;
 
 
     @Test
@@ -42,4 +41,6 @@ class MemberServiceTest {
     @Test
     void findOne() {
     }
+
+
 }
