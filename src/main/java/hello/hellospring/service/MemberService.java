@@ -25,14 +25,11 @@ public class MemberService {
      * 회원가입
      */
     public Long join(Member member){
-        // 같은 이름이 있는 중복 회원X
-        vaildateDuplicateMember(member);
+            // 같은 이름이 있는 중복 회원X
+            vaildateDuplicateMember(member);
 
-
-        memberRepository.save(member);
-        return member.getId();
-
-
+            memberRepository.save(member);
+            return member.getId();
 }
 
     private void vaildateDuplicateMember(Member member) {
@@ -45,7 +42,9 @@ public class MemberService {
      * 전체 회원 조회
      */
     public List<Member> findMember(){
-        return memberRepository.findAll();
+
+            return memberRepository.findAll();
+
     }
 
     /**
